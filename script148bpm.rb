@@ -340,6 +340,165 @@ start_loop 15
 
 
 
+###Another Song----------------------------------------------------------------------------------------------------------------------------------------
+
+use_debug false
+##| use_sched_ahead_time 1
+use_bpm 148
+set(:bpm, current_bpm)
+set(:stop, false)
+
+
+set_mixer_control! lpf_slide: 1, lpf: 120
+set_mixer_control! hpf_slide: 1, hpf: 10
+
+tracker = [0, 0, 0, 0,
+           0, 0, 0, 0,
+           0, 0, 0, 0,
+           0, 0, 0, 0,
+           0, 0, 0, 0,
+           0, 0, 0, 0,
+           0, 0, 0, 0,
+           0, 0, 0, 0]
+
+
+define :start_loop do |i|
+  tracker[i] = 1
+end
+
+define :stop_loop do |i|
+  tracker[i] = 0
+end
+
+define :stop_all do
+  tracker[0] = 0
+  tracker[1] = 0
+  tracker[2] = 0
+  tracker[3] = 0
+  tracker[4] = 0
+  tracker[5] = 0
+  tracker[6] = 0
+  tracker[7] = 0
+  tracker[8] = 0
+  tracker[9] = 0
+  tracker[10] = 0
+  tracker[11] = 0
+  tracker[12] = 0
+  tracker[13] = 0
+  tracker[14] = 0
+  tracker[15] = 0
+  tracker[16] = 0
+  tracker[17] = 0
+  tracker[18] = 0
+  tracker[19] = 0
+  tracker[20] = 0
+  tracker[21] = 0
+  tracker[22] = 0
+  tracker[23] = 0
+  tracker[24] = 0
+  tracker[25] = 0
+  tracker[26] = 0
+  tracker[27] = 0
+  tracker[28] = 0
+end
+
+live_loop :bar do
+  use_bpm get(:bpm)
+  sleep 1
+end
+
+live_loop :beats do
+  sync :bar
+  sleep 4
+  cue :bass
+end
+
+basses = "C:/Users/Berke/Music/AbleforSonic3/"
+
+
+
+###Directories--------------------------------------------------------------------------
+
+live_loop :intro1, sync: :bar do
+  if tracker[1]>0 then
+    sample "C:/Users/Berke/Music/AbleforSonic2023/maybe_first.wav", amp: 1
+    sleep 16
+  else
+    sleep 1
+  end
+end
+
+with_fx :reverb, mix: line(0.2, 1, steps: 32).mirror.look do
+  live_loop :pulsive, sync: :bar do
+    if tracker[2]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/pulsive.wav", amp: line(0.9, 1.2, steps: 16).mirror.tick
+      sleep 64
+    else
+      sleep 1
+    end
+  end
+end
+
+with_fx :ping_pong, mix: line(0.3, 0.7, steps: 64).mirror.look do
+  with_fx :reverb, room: 0.5 do
+    live_loop :is_this, sync: :bar do
+      if tracker[3]>0 then
+        sample "C:/Users/Berke/Music/AbleforSonic2023/is_this_rythm.wav", amp: 0.67, hpf: 70
+        sleep 16
+      else
+        sleep 1
+      end
+    end
+  end
+end
+
+with_fx :krush do
+  live_loop :lsd, sync: :bar do
+    if tracker[4]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/lsd_bass.wav", amp: line(0.1, 1.5, steps: 38).mirror.tick,
+        cutoff: line(89, 125, steps: 17).mirror.tick
+      sleep 64
+    else
+      sleep 1
+    end
+  end
+end
+
+live_loop :intro1_vari, sync: :bar do
+  if tracker[5]>0 then
+    sample "C:/Users/Berke/Music/AbleforSonic2023/maybe_first.wav", amp: rrand(1, 1.32),
+      onset: rrand(0.6, 112)
+    sleep 0.5
+  else
+    sleep 1
+  end
+end
+
+
+###Scripts--------------------------------------------------------------
+
+start_loop 1
+sleep 64
+start_loop 2
+sleep 64
+start_loop 3
+sleep 64
+start_loop 4
+stop_loop 1
+start_loop 5
+sleep 32
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
