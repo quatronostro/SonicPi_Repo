@@ -194,3 +194,42 @@ start_loop 8
 
 
 
+
+
+
+
+###Solo------------------------------------------------------------------------------
+
+use_debug false
+
+use_bpm 140
+
+with_fx :reverb, mix: 0.23 do
+  1.times do
+    sample "C:/Users/Berke/Music/AbleforSonic2023/datapoint/edgar.wav", amp: 1.46
+    sleep 536
+  end
+end
+
+
+####-----------------------------------------------------------------------------------
+
+use_debug false
+
+use_bpm 140
+
+with_fx :reverb, mix: 0.45, room: 0.5 do
+  live_loop :pipe do
+    ##| stop
+    sample "C:/Users/Berke/Music/AbleforSonic2023/datapoint/steam_pipe.wav", amp: rrand(1.65, 1.75),
+      release: 4
+    sleep rrand_i(8, 32)
+  end
+end
+
+
+
+
+
+
+
