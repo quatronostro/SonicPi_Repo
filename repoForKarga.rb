@@ -170,10 +170,10 @@ end
 
 with_fx :reverb, mix: 0.24 do
   with_fx :eq, low: 0.5 do
-    with_fx :distortion, mix: 0.2 do
+    with_fx :distortion, mix: 0.19 do
       live_loop :french_corps, sync: :bar do
         if tracker[9]>0 then
-          sample "C:/Users/Berke/Music/AbleforSonic2023/frenchCorps.wav", amp: 0.99
+          sample "C:/Users/Berke/Music/AbleforSonic2023/frenchCorps.wav", amp: 0.9
           sleep 4
         else
           sleep 1
@@ -309,102 +309,112 @@ live_loop :formula_mi, sync: :bar do
   end
 end
 
-live_loop :ikibinotuz_cut, sync: :bar do
+live_loop :fire, sync: :bar do
   if tracker[22]>0 then
-    sample "C:/Users/Berke/Music/AbleforSonic2023/2030.wav", amp: line(0.05, 0.9, steps: 8).tick, cutoff: 120
-    sleep 16
+    sample "C:/Users/Berke/Music/AbleforSonic2023/firestorm.wav", amp: line(0.05, 0.9, steps: 6).tick, cutoff: 120
+    sleep 32
   else
     sleep 1
   end
 end
 
-live_loop :ikibinotuz, sync: :bar do
+live_loop :storm, sync: :bar do
   if tracker[23]>0 then
-    sample "C:/Users/Berke/Music/AbleforSonic2023/2030.wav", amp: 1
-    sleep 16
+    sample "C:/Users/Berke/Music/AbleforSonic2023/firestorm.wav", amp: 1
+    sleep 32
   else
     sleep 1
   end
 end
 
+with_fx :distortion, mix: 0.1 do
+  live_loop :kick22222222222, sync: :bar do
+    if tracker[24]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/frenchKick.wav", amp: 0.99, cutoff: 115
+      sleep 1
+    else
+      sleep 1
+    end
+  end
+end
 
 
 
 ###Directories--------------------------------------------------------------------------
 
 
-##| start_loop 1
-##| sleep 64
-##| start_loop 2
-##| start_loop 10 #percussion
-##| sleep 64
-##| start_loop 3 #kick
-##| sleep 30
-##| set_mixer_control! hpf_slide: 1, hpf: 95
-##| sleep 2
-##| set_mixer_control! hpf_slide: 0.5, hpf: 5
-##| start_loop 4
-##| stop_loop 10
-##| sleep 32
-##| stop_loop 4
-##| sleep 32
-##| stop_loop 3 #kick
-##| start_loop 4
-##| sleep 32
-##| start_loop 5
-##| stop_loop 4
-##| sleep 22
-##| set_mixer_control! hpf_slide: 4, hpf: 100
-##| sleep 10
-##| set_mixer_control! hpf_slide: 0.5, hpf: 0
-##| start_loop 3
-##| start_loop 10
-##| sleep 32
-##| stop_loop 5
-##| sleep 16
-##| stop_loop 3
-##| stop_loop 1
-##| start_loop 6
-##| sleep 32
-##| start_loop 7
-##| stop_loop 2
-##| stop_loop 10
-##| sleep 32
-##| start_loop 8
-##| sleep 32
-##| start_loop 9
-##| sleep 128
-##| stop_loop 9
-##| stop_loop 8
-##| sleep 32
-##| stop_loop 6
-##| sleep 28
-##| set_mixer_control! hpf_slide: 2, hpf: 100
-##| sleep 4
-##| set_mixer_control! hpf_slide: 0.5, hpf: 0
-##| start_loop 3
-##| start_loop 1
-##| start_loop 8
-##| sleep 64
-##| start_loop 5
-##| sleep 32
-##| stop_loop 8
-##| start_loop 10
-##| sleep 92
-##| set_mixer_control! hpf_slide: 2, hpf: 100
-##| sleep 4
-##| set_mixer_control! hpf_slide: 0.1, hpf: 0
-##| stop_loop 3
-##| stop_loop 1
-##| stop_loop 10
-##| sleep 28
-##| set_mixer_control! hpf_slide: 1, hpf: 95
-##| sleep 4
-##| set_mixer_control! hpf_slide: 0.5, hpf: 0
-##| stop_all #----
+start_loop 1
+sleep 64
+start_loop 2
+start_loop 10 #percussion
+sleep 64
+start_loop 3 #kick
+sleep 30
+set_mixer_control! hpf_slide: 1, hpf: 95
+sleep 2
+set_mixer_control! hpf_slide: 0.5, hpf: 5
+start_loop 4
+stop_loop 10
+sleep 32
+stop_loop 4
+sleep 32
+stop_loop 3 #kick
+start_loop 4
+sleep 32
+start_loop 5
+stop_loop 4
+sleep 22
+set_mixer_control! hpf_slide: 4, hpf: 100
+sleep 10
+set_mixer_control! hpf_slide: 0.5, hpf: 0
+start_loop 3
+start_loop 10
+sleep 32
+stop_loop 5
+sleep 16
+stop_loop 3
+stop_loop 1
+start_loop 6
+sleep 32
+start_loop 7
+stop_loop 2
+stop_loop 10
+sleep 32
+start_loop 8
+sleep 32
+start_loop 9
+sleep 128
+stop_loop 9
+stop_loop 8
+sleep 32
+stop_loop 6
+sleep 28
+set_mixer_control! hpf_slide: 2, hpf: 100
+sleep 4
+set_mixer_control! hpf_slide: 0.5, hpf: 0
+start_loop 3
+start_loop 1
+start_loop 8
+sleep 64
+start_loop 5
+sleep 32
+stop_loop 8
+start_loop 10
+sleep 92
+set_mixer_control! hpf_slide: 2, hpf: 100
+sleep 4
+set_mixer_control! hpf_slide: 0.1, hpf: 0
+stop_loop 3
+stop_loop 1
+stop_loop 10
+sleep 28
+set_mixer_control! hpf_slide: 1, hpf: 95
+sleep 4
+set_mixer_control! hpf_slide: 0.5, hpf: 0
+stop_all #----
 sleep 4
 start_loop 11 #vector
-sleep 32
+sleep 64
 start_loop 13 #riser
 sleep 32
 start_loop 12
@@ -439,20 +449,19 @@ sleep 16
 stop_loop 15
 sleep 16
 stop_loop 14
+start_loop 22
 sleep 16
 stop_loop 13
 sleep 16
 stop_loop 12
 sleep 32
 stop_loop 20
-###mi--------------------------
+##############33mi--------------------------
 start_loop 21
-sleep 16
-start_loop 22
 sleep 96
 stop_loop 22
 start_loop 23
-
+start_loop 24
 
 
 
