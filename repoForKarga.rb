@@ -160,7 +160,7 @@ end
 with_fx :eq, high: 0.5 do
   live_loop :jungle_perc, sync: :bar do
     if tracker[8]>0 then
-      sample "C:/Users/Berke/Music/AbleforSonic2023/junglePerc.wav", amp: 1
+      sample "C:/Users/Berke/Music/AbleforSonic2023/junglePerc.wav", amp: 0.9
       sleep 4
     else
       sleep 1
@@ -194,12 +194,14 @@ with_fx :ixi_techno, mix: 0.4 do
   end
 end
 
-live_loop :vector, sync: :bar do
-  if tracker[11]>0 then
-    sample "C:/Users/Berke/Music/AbleforSonic2023/vectory46.wav", amp: 1
-    sleep 16
-  else
-    sleep 1
+with_fx :eq, low: 0.5 do
+  live_loop :vector, sync: :bar do
+    if tracker[11]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/vectory46.wav", amp: 1
+      sleep 16
+    else
+      sleep 1
+    end
   end
 end
 
@@ -309,34 +311,89 @@ live_loop :formula_mi, sync: :bar do
   end
 end
 
-live_loop :fire, sync: :bar do
-  if tracker[22]>0 then
-    sample "C:/Users/Berke/Music/AbleforSonic2023/firestorm.wav", amp: line(0.05, 0.9, steps: 6).tick, cutoff: 120
-    sleep 32
+
+with_fx :eq, low: 0.5 do
+  live_loop :vector2, sync: :bar do
+    if tracker[22]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/vectory31-1.wav", amp: 1.1
+      sleep 16
+    else
+      sleep 1
+    end
+  end
+end
+
+with_fx :distortion, mix: 0.15 do
+  with_fx :eq, low: 0.5 do
+    live_loop :vector3, sync: :bar do
+      if tracker[23]>0 then
+        sample "C:/Users/Berke/Music/AbleforSonic2023/vectory31-2.wav", amp: 1.1
+        sleep 16
+      else
+        sleep 1
+      end
+    end
+  end
+end
+
+live_loop :blade, sync: :bar do
+  if tracker[24]>0 then
+    sample "C:/Users/Berke/Music/AbleforSonic2023/blade.wav", amp: 1, cutoff: line(90, 130, steps: 6).mirror.tick
+    sleep 16
   else
     sleep 1
   end
 end
 
-live_loop :storm, sync: :bar do
-  if tracker[23]>0 then
-    sample "C:/Users/Berke/Music/AbleforSonic2023/firestorm.wav", amp: 1
-    sleep 32
+
+live_loop :down, sync: :bar do
+  if tracker[25]>0 then
+    sample "C:/Users/Berke/Music/AbleforSonic2023/downunder.wav", amp: 2
+    sleep 16
   else
     sleep 1
   end
 end
 
-with_fx :distortion, mix: 0.1 do
-  live_loop :kick22222222222, sync: :bar do
-    if tracker[24]>0 then
-      sample "C:/Users/Berke/Music/AbleforSonic2023/frenchKick.wav", amp: 0.99, cutoff: 115
+live_loop :layeredriser, sync: :bar do
+  if tracker[26]>0 then
+    sample "C:/Users/Berke/Music/AbleforSonic2023/layer_riser.wav", amp: 1
+    sleep 64
+  else
+    sleep 1
+  end
+end
+
+live_loop :blade_cut, sync: :bar do
+  if tracker[27]>0 then
+    sample "C:/Users/Berke/Music/AbleforSonic2023/blade_cut.wav", amp: 1
+    sleep 16
+  else
+    sleep 1
+  end
+end
+
+live_loop :blade_phase, sync: :bar do
+  if tracker[28]>0 then
+    sample "C:/Users/Berke/Music/AbleforSonic2023/blade_phase.wav", amp: 1
+    sleep 64
+  else
+    sleep 1
+  end
+end
+
+with_fx :distortion, mix: 0.2 do
+  live_loop :alien_kick, sync: :bar do
+    if tracker[29]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/alienkick.wav", amp: 1.5
       sleep 1
     else
       sleep 1
     end
   end
 end
+
+
 
 
 
@@ -449,7 +506,6 @@ sleep 16
 stop_loop 15
 sleep 16
 stop_loop 14
-start_loop 22
 sleep 16
 stop_loop 13
 sleep 16
@@ -458,10 +514,32 @@ sleep 32
 stop_loop 20
 ##############33mi--------------------------
 start_loop 21
-sleep 96
-stop_loop 22
+start_loop 22
+sleep 32
 start_loop 23
+sleep 32
 start_loop 24
+stop_loop 22
+sleep 32
+start_loop 22
+stop_loop 21
+sleep 64
+stop_loop 22
+stop_loop 23
+sleep 16
+start_loop 25
+sleep 32
+start_loop 26
+sleep 64
+stop_all
+start_loop 27
+sleep 16
+stop_loop 27
+start_loop 28
+start_loop 29
+sleep 128
+stop_all
+
 
 
 
