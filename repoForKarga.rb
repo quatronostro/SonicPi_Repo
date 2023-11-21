@@ -313,17 +313,19 @@ end
 
 
 with_fx :eq, low: 0.5 do
-  live_loop :vector2, sync: :bar do
-    if tracker[22]>0 then
-      sample "C:/Users/Berke/Music/AbleforSonic2023/vectory31-1.wav", amp: 1.1
-      sleep 16
-    else
-      sleep 1
+  with_fx :distortion, mix: 0.15 do
+    live_loop :vector2, sync: :bar do
+      if tracker[22]>0 then
+        sample "C:/Users/Berke/Music/AbleforSonic2023/vectory31-1.wav", amp: 1.1
+        sleep 16
+      else
+        sleep 1
+      end
     end
   end
 end
 
-with_fx :distortion, mix: 0.15 do
+with_fx :distortion, mix: 0.2 do
   with_fx :eq, low: 0.5 do
     live_loop :vector3, sync: :bar do
       if tracker[23]>0 then
@@ -373,20 +375,44 @@ live_loop :blade_cut, sync: :bar do
   end
 end
 
-live_loop :blade_phase, sync: :bar do
-  if tracker[28]>0 then
-    sample "C:/Users/Berke/Music/AbleforSonic2023/blade_phase.wav", amp: 1
-    sleep 64
-  else
-    sleep 1
+with_fx :reverb, mix: 0.19 do
+  live_loop :blade_phase, sync: :bar do
+    if tracker[28]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/blade_phase.wav", amp: 1
+      sleep 64
+    else
+      sleep 1
+    end
   end
 end
 
 with_fx :distortion, mix: 0.2 do
-  live_loop :alien_kick, sync: :bar do
+  live_loop :gabber, sync: :bar do
     if tracker[29]>0 then
-      sample "C:/Users/Berke/Music/AbleforSonic2023/alienkick.wav", amp: 1.5
+      sample "C:/Users/Berke/Music/AbleforSonic2023/gabber.wav", amp: 1.2
       sleep 1
+    else
+      sleep 1
+    end
+  end
+end
+
+with_fx :eq, low: -1, high: 0.5 do
+  live_loop :rtmrtm, sync: :bar do
+    if tracker[30]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/rtm.wav", amp: 2
+      sleep 16
+    else
+      sleep 1
+    end
+  end
+end
+
+with_fx :reverb, mix: 0.1 do
+  live_loop :fifth, sync: :bar do
+    if tracker[31]>0 then
+      sample "C:/Users/Berke/Music/AbleforSonic2023/blade_fifth.wav", amp: 0.7
+      sleep 32
     else
       sleep 1
     end
@@ -395,9 +421,7 @@ end
 
 
 
-
-
-###Directories--------------------------------------------------------------------------
+###Scripts--------------------------------------------------------------
 
 
 start_loop 1
@@ -508,9 +532,9 @@ sleep 16
 stop_loop 14
 sleep 16
 stop_loop 13
-sleep 16
-stop_loop 12
 sleep 32
+stop_loop 12
+sleep 16
 stop_loop 20
 ##############33mi--------------------------
 start_loop 21
@@ -537,8 +561,30 @@ sleep 16
 stop_loop 27
 start_loop 28
 start_loop 29
-sleep 128
+sleep 16
+start_loop 30
+sleep 16
+start_loop 31
+sleep 32
+start_loop 26
+sleep 64
 stop_all
+
+start_loop 27
+sleep 16
+stop_loop 27
+start_loop 25
+start_loop 24
+sleep 96
+stop_loop 25
+sleep 32
+stop_loop 24
+stop_all
+
+
+
+
+
 
 
 
